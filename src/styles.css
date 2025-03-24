@@ -1,0 +1,31 @@
+.navbar-ncu {
+  background-color: rgba(255, 41, 164, 1) !important;
+}
+
+.navbar-ncu .nav-link {
+  color: white !important;
+}
+.navbar-ncu .navbar-brand {
+  color: white !important;
+}
+
+.footer-ncu {
+  background-color: rgba(255, 41, 164, 1) !important;
+}
+
+.footer-ncu .container-fluid {
+  display: flex;
+  justify-content: center;
+}
+.footer-ncu .navbar-text {
+  color: white;
+}
+
+.description-warp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3em;
+}

@@ -1,0 +1,32 @@
+<h5>Courses</h5>
+<div class="row g-3 align-items-center">
+  @for (course of courses; track $index) {
+  <div class="col-12">
+    <div class="card mb-3" style="max-width: 100%;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            [src]="'/images/course/' + course?.course_image"
+            class="img-fluid rounded-start"
+            style="height: 300px; width: 600px"
+            (error)="onImageError($event)"
+            alt="..."
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">
+              <b>{{ course?.title }}</b>
+            </h5>
+            <p class="card-text description-warp">{{ course?.description }}</p>
+            <p class="card-text">{{ course?.lecturer }}</p>
+            <p class="card-text">{{ course?.duration }} ชม.</p>
+            <p class="card-text">{{ course?.category }}</p>
+            <button class="btn btn-primary">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

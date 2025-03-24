@@ -1,0 +1,139 @@
+<h5>Courses Management</h5>
+<table class="table">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">#</th>
+      <th scope="col">course_id</th>
+      <th scope="col">title</th>
+      <th scope="col">description</th>
+      <th scope="col">duration</th>
+      <th scope="col">lecturer</th>
+      <th scope="col">category</th>
+      <th scope="col">promote</th>
+      <th scope="col">course_image</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    @for (course of courses; track $index) {
+    <tr role="button" (click)="onEventSelect(course)">
+      <th scope="row">{{ $index + 1 }}</th>
+      <td class="text-center">{{ course?.course_id }}</td>
+      <td>{{ course?.title }}</td>
+      <td>{{ course?.description }}</td>
+      <td class="text-center">{{ course?.duration }} ชม.</td>
+      <td>{{ course?.lecturer }}</td>
+      <td>{{ course?.category }}</td>
+      <td class="text-center">{{ course?.promote }}</td>
+      <td class="text-center">{{ course?.course_image }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+@if (statusShow == true) { @if (statusAlert == true) {
+<div class="alert alert-success" role="alert">{{ alertText }}</div>
+} @else if (statusAlert == false) {
+<div class="alert alert-danger" role="alert">{{ alertText }}</div>
+} }
+<div class="row g-3 align-items-center mb-5">
+  <div class="col-12">
+    <label class="form-label fw-bold">Course_id</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="course!.course_id"
+      min="99999999999"
+    />
+  </div>
+  <div class="col-12">
+    <label class="form-label fw-bold">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="course!.title"
+      maxlength="100"
+    />
+  </div>
+  <div class="col-12">
+    <label class="form-label fw-bold">Description</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="course!.description"
+      maxlength="100"
+    />
+  </div>
+  <div class="col-12">
+    <label class="form-label fw-bold">Lecturer</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="course!.lecturer"
+      maxlength="100"
+    />
+  </div>
+  <div class="col-4">
+    <label class="form-label fw-bold">Duration</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="course!.duration"
+      min="99999999999"
+    />
+  </div>
+  <div class="col-4">
+    <label class="form-label fw-bold">Category</label>
+    <select class="form-select" [(ngModel)]="course!.category">
+      <option value="" selected disabled>- category -</option>
+      <option value="Basic">Basic</option>
+      <option value="Graphics">Graphics</option>
+      <option value="Coding">Coding</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div class="col-4">
+    <label class="form-label fw-bold">Promote</label>
+    <div class="d-md-flex">
+      <div class="form-check me-md-3">
+        <input
+          class="form-check-input"
+          type="radio"
+          [(ngModel)]="course!.promote"
+          [value]="1"
+          name="flexRadioDefault"
+          role="button"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1"> Yes </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          [(ngModel)]="course!.promote"
+          [value]="0"
+          name="flexRadioDefault"
+          role="button"
+          id="flexRadioDefault2"
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> No </label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row g-3 align-items-center">
+  <div class="col-md-2 col-12">
+    <button class="btn btn-success w-100" (click)="onEventButton('IN')">
+      Add
+    </button>
+  </div>
+  <div class="col-md-2 col-12">
+    <button class="btn btn-warning w-100" (click)="onEventButton('UP')">
+      Edit
+    </button>
+  </div>
+  <div class="col-md-2 col-12">
+    <button class="btn btn-danger w-100" (click)="onEventButton('DEL')">
+      Delete
+    </button>
+  </div>
+</div>

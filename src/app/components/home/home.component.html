@@ -1,0 +1,32 @@
+<h5>Highlight</h5>
+<div class="row g-3 align-items-center">
+  @for (course of courses; track $index) {
+  <div class="col-md-2 col-12">
+    <div class="card" style="width: 18rem; min-height: 508px;">
+      <img
+        [src]="'/images/course/' + course?.course_image"
+        class="card-img-top"
+        style="min-height: 300px"
+        (error)="onImageError($event)"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          <b>{{ course?.title }}</b>
+        </h5>
+        <p class="card-text description-warp">{{ course?.description }}</p>
+        <p class="card-text">{{ course?.lecturer }}</p>
+        <div class="row align-items-center">
+          <div class="col-6">
+            <p class="card-text">{{ course?.duration }} ชม.</p>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-primary w-100">รายละเอียด</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>
+<a href="/allCourse" class="nav-link text-end">หลักสูตรทั้งหมด</a>
